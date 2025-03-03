@@ -7,19 +7,22 @@ import Image from 'next/image';
 import Spacer from '../components/Spacer';
 import Button from '../components/Button';
 import { LocationInfo } from '../types/LocationInfo';
+import { usePathname } from 'next/navigation';
 
 interface LocationFullInfoProps {
     location: LocationInfo;
 }
 
 const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
+    const pathname = usePathname();
+
     return (
         <motion.section
+            key={pathname}
             className="grid gap-xsSpacing grid-cols-12 grid-rows-2 w-full relative flex-1"
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
         >
             <motion.div
                 variants={itemVariants}
@@ -62,10 +65,16 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                         {location.fullDescription}
                     </motion.p>
                     <div className="flex gap-xsSpacing">
-                        <motion.p variants={itemVariants} className="text-foregroundWhite text-[24px] font-extralight">
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-foregroundWhite text-[24px] font-extralight"
+                        >
                             {location.phone}
                         </motion.p>
-                        <motion.p variants={itemVariants} className="text-foregroundWhite text-[24px] font-extralight">
+                        <motion.p
+                            variants={itemVariants}
+                            className="text-foregroundWhite text-[24px] font-extralight"
+                        >
                             {location.email}
                         </motion.p>
                     </div>

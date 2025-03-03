@@ -13,8 +13,7 @@ const Hero = () => {
             className="grid lg:gap-xsSpacing grid-cols-12 grid-rows-4 w-full relative flex-1"
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
         >
             <motion.span
                 variants={itemVariants}

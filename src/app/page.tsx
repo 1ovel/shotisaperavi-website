@@ -1,6 +1,5 @@
 import Spacer from './components/Spacer';
 import Footer from './components/Footer';
-import Header from './components/Header';
 import TitleWithInfo from './sections/TitleWithInfo';
 import LocationsGallery from './sections/LocationsGallery';
 import LocationsContactInfo from './sections/LocationsContactInfo';
@@ -10,7 +9,6 @@ export default function Home() {
     return (
         <main>
             <div className="h-screen flex flex-col">
-                
                 <Spacer />
 
                 <Hero />

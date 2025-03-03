@@ -2,6 +2,7 @@ import React from 'react';
 import { LocationInfo } from '../types/LocationInfo';
 import arrowIcon from '../images/arrow.svg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface LocationCardProps {
     location: LocationInfo;
@@ -9,7 +10,10 @@ interface LocationCardProps {
 
 const LocationCard = ({ location }: LocationCardProps) => {
     return (
-        <button className="flex flex-col justify-between group bg-backgroundLight p-xsSpacing w-full h-full relative">
+        <Link
+            href={`/restaurant/${location.slug}`}
+            className="flex flex-col justify-between group bg-backgroundLight p-xsSpacing w-full h-full relative"
+        >
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <Image
                     src={location.imageSrc}
@@ -31,7 +35,7 @@ const LocationCard = ({ location }: LocationCardProps) => {
                     <Image src={arrowIcon} alt="arrow right" />
                 </div>
             </div>
-        </button>
+        </Link>
     );
 };
 

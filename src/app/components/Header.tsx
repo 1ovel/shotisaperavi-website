@@ -9,6 +9,7 @@ import tailwindConfig from '../../../tailwind.config';
 import { useModal } from '@faceless-ui/modal';
 import { locations } from '../data/locations';
 import Link from 'next/link';
+import NavLink from './NavLink';
 
 const Header = () => {
     const { toggleModal } = useModal();
@@ -54,14 +55,12 @@ const Header = () => {
             <nav className="flex-1 hidden lg:block">
                 <ul className="flex gap-xsSpacing">
                     {locations.map((l) => (
-                        <Link
-                            key={l.slug + '-menu-link'}
+                        <NavLink
+                            key={l.slug + '-link'}
+                            slug={l.slug}
+                            title={l.title}
                             href={`/restaurant/${l.slug}`}
-                            className="group"
-                        >
-                            {l.title}
-                            <span className="block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-foregroundWhite"></span>
-                        </Link>
+                        />
                     ))}
                 </ul>
             </nav>
@@ -76,8 +75,8 @@ const Header = () => {
 
             <nav className="flex-1 hidden lg:block">
                 <ul className="flex gap-xsSpacing justify-end">
-                    <li>Menu</li>
-                    <li>Contact us</li>
+                    <NavLink slug="menu" title="Menu" href="/menu" />
+                    <NavLink slug="about" title="About" href="/about" />
                 </ul>
             </nav>
 
