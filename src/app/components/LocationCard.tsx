@@ -18,7 +18,7 @@ const LocationCard = ({ location }: LocationCardProps) => {
                 <Image
                     src={location.imageSrc}
                     alt=""
-                    className="pointer-events-none object-cover w-full h-full brightness-[0.6] group-hover:brightness-[0.3] transition-all scale-100 group-hover:scale-[102%]"
+                    className="pointer-events-none object-cover w-full h-full brightness-[0.8] group-hover:brightness-[0.4] transition-all scale-100 group-hover:scale-[102%]"
                 />
             </div>
             <div className="relative z-10">

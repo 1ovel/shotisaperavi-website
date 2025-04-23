@@ -34,7 +34,7 @@ const Hero = () => {
                 <Image
                     src={imageFood}
                     alt=""
-                    className="object-cover w-full h-full brightness-[0.6]"
+                    className="object-cover w-full h-full brightness-[0.8]"
                 />
             </motion.div>
 
@@ -45,11 +45,11 @@ const Hero = () => {
                 <Image
                     src={imageBread}
                     alt=""
-                    className="object-cover w-full h-full brightness-[0.6]"
+                    className="object-cover w-full h-full brightness-[0.8]"
                 />
             </motion.div>
 
-            <div className="grid leading-none gap-x-xsSpacing grid-cols-12 grid-rows-[90px-90px-90px] sx:grid-rows-[140px_140px_140px] w-full font-heading text-[6rem] sx:text-[110px] xl:text-[140px] 2xl:text-[170px] uppercase absolute top-1/2 -translate-y-1/2">
+            <div className="grid leading-none gap-x-xsSpacing grid-cols-12 grid-rows-[90px-90px-90px] sx:grid-rows-[140px_140px_140px] w-full font-heading text-[4rem] min-[550px]:text-[6rem] sx:text-[110px] xl:text-[140px] 2xl:text-[170px] uppercase absolute top-1/2 -translate-y-1/2">
                 <motion.h1 variants={itemVariants} className="lg:col-start-3">
                     Authentic
                 </motion.h1>

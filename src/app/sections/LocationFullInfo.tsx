@@ -8,6 +8,7 @@ import Spacer from '../components/Spacer';
 import Button from '../components/Button';
 import { LocationInfo } from '../types/LocationInfo';
 import { usePathname } from 'next/navigation';
+import OpeningHours from './OpeningHours';
 
 interface LocationFullInfoProps {
     location: LocationInfo;
@@ -24,30 +25,36 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
             initial="hidden"
             animate="visible"
         >
-            <motion.div
-                variants={itemVariants}
-                className="col-span-6 row-span-2 grid grid-cols-6 grid-rows-1"
-            >
-                <div className="col-span-4 row-span-1">
-                    <Image
-                        src={location.imageSrc}
-                        alt=""
-                        className="object-cover w-full h-full brightness-[0.5]"
-                    />
-                </div>
-            </motion.div>
-            <div className="grid leading-none gap-x-xsSpacing grid-cols-12 grid-rows-[140px_140px] w-full font-heading text-[150px] uppercase absolute top-1/2 -translate-y-1/2">
-                <motion.h1 variants={itemVariants} className="col-start-2">
-                    Rioni
-                </motion.h1>
-                <motion.h1
+            <div className="col-span-12 lg:col-span-6 row-span-2 relative order-1 lg:order-none">
+                <motion.div
                     variants={itemVariants}
-                    className="col-start-2 row-start-2 "
+                    className="grid grid-cols-6 grid-rows-1 h-full"
                 >
-                    {location.title}
-                </motion.h1>
+                    <div className="col-span-6 lg:col-span-4 row-span-1 h-64 lg:h-full">
+                        <Image
+                            src={location.imageSrc}
+                            alt=""
+                            className="object-cover w-full h-full brightness-[0.8]"
+                        />
+                    </div>
+                </motion.div>
+
+                <div className="absolute inset-0 flex items-center justify-center lg:block lg:inset-auto lg:top-1/2 lg:-translate-y-1/2">
+                    <motion.div
+                        variants={itemVariants}
+                        className="w-full lg:grid lg:grid-cols-6 lg:grid-rows-1"
+                    >
+                        <motion.h1
+                            variants={itemVariants}
+                            className="text-[80px] lg:text-[150px] uppercase font-heading text-center lg:text-left lg:col-start-2 lg:col-span-4"
+                        >
+                            {location.title}
+                        </motion.h1>
+                    </motion.div>
+                </div>
             </div>
-            <div className="col-span-6 row-span-2">
+
+            <div className="col-span-12 lg:col-span-6 row-span-2 order-2 lg:order-none">
                 <motion.div variants={itemVariants}>
                     <h2 className="uppercase font-heading text-[40px] leading-none">
                         {location.address}
@@ -79,7 +86,15 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                         </motion.p>
                     </div>
                 </div>
+
                 <Spacer size="md" />
+
+                <motion.div variants={itemVariants}>
+                    <OpeningHours schedule={location.schedule} />
+                </motion.div>
+
+                <Spacer size="md" />
+
                 <motion.div
                     variants={itemVariants}
                     className="flex flex-col gap-2"

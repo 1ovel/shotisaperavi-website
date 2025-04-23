@@ -24,7 +24,7 @@ export default function Home() {
                 subtitle="Georgian cuisine in the atmospheric environments
                         of our restaurants in Espoo, Turku, Helsinki and
                         Tampere."
-                textLeft="Our Georgian restaurant Rioni offers a taste of the
+                textLeft="Our Georgian restaurant Shoti & Saperavi offers a taste of the
                         traditional Georgian cuisine. We serve hearty meals for
                         lovers of succulent meat stews and vegetarian lovers
                         alike. We also offer vegan food."

@@ -50,44 +50,46 @@ const Header = () => {
             animate={!isHidden || isMobile ? 'visible' : 'hidden'}
             transition={{ duration: 0.13, type: 'tween' }}
             variants={variants}
-            className="mx-5 justify-end lg:justify-normal lg:mx-10 flex py-xsSpacing uppercase items-center text-lg fixed min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px] left-0 right-0 z-50 min-h-24"
+            className="fixed top-0 left-0 right-0 z-50 min-h-24 flex py-xsSpacing uppercase items-center text-lg mx-5 md:mx-10"
         >
-            <nav className="flex-1 hidden lg:block">
-                <ul className="flex gap-xsSpacing">
-                    {locations.map((l) => (
-                        <NavLink
-                            key={l.slug + '-link'}
-                            slug={l.slug}
-                            title={l.title}
-                            href={`/restaurant/${l.slug}`}
-                        />
-                    ))}
-                </ul>
-            </nav>
+            <div className="w-full flex justify-end lg:justify-normal min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px]">
+                <nav className="flex-1 hidden lg:block">
+                    <ul className="flex gap-xsSpacing">
+                        {locations.map((l) => (
+                            <NavLink
+                                key={l.slug + '-link'}
+                                slug={l.slug}
+                                title={l.title}
+                                href={`/restaurant/${l.slug}`}
+                            />
+                        ))}
+                    </ul>
+                </nav>
 
-            <Link href={'/'}>
-                <Image
-                    src={logoImage}
-                    className="hidden lg:block w-36 lg:w-48"
-                    alt="Rioni logo"
-                />
-            </Link>
+                <Link href={'/'}>
+                    <Image
+                        src={logoImage}
+                        className="hidden lg:block w-48 lg:w-80"
+                        alt="Shoti & Saperavi logo"
+                    />
+                </Link>
 
-            <nav className="flex-1 hidden lg:block">
-                <ul className="flex gap-xsSpacing justify-end">
-                    <NavLink slug="menu" title="Menu" href="/menu" />
-                    <NavLink slug="about" title="About" href="/about" />
-                </ul>
-            </nav>
+                <nav className="flex-1 hidden lg:block">
+                    <ul className="flex gap-xsSpacing justify-end">
+                        <NavLink slug="menu" title="Menu" href="/menu" />
+                        <NavLink slug="about" title="About" href="/about" />
+                    </ul>
+                </nav>
 
-            <button
-                className="lg:hidden flex flex-col gap-1.5"
-                onClick={() => toggleModal('menu')}
-            >
-                <span className="block w-7 h-0.5 bg-current" />
-                <span className="block w-3 h-0.5 bg-current" />
-                <span className="block w-7 h-0.5 bg-current" />
-            </button>
+                <button
+                    className="lg:hidden flex flex-col gap-1.5"
+                    onClick={() => toggleModal('menu')}
+                >
+                    <span className="block w-7 h-0.5 bg-current" />
+                    <span className="block w-3 h-0.5 bg-current" />
+                    <span className="block w-7 h-0.5 bg-current" />
+                </button>
+            </div>
         </motion.header>
     );
 };

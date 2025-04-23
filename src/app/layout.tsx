@@ -7,8 +7,8 @@ import MenuModal from './components/MenuModal';
 
 
 export const metadata: Metadata = {
-    title: 'Rioni',
-    description: 'Rioni - Georgian Restaurant',
+    title: 'Shoti & Saperavi',
+    description: 'Shoti & Saperavi - Georgian Restaurant',
 };
 
 const displayFont = localFont({

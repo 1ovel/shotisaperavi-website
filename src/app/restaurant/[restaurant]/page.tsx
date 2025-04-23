@@ -1,7 +1,6 @@
 import React from 'react';
 import Spacer from '../../components/Spacer';
 import LocationFullInfo from '../../sections/LocationFullInfo';
-import OpeningHours from '@/app/sections/OpeningHours';
 import { locations } from '@/app/data/locations';
 import Footer from '@/app/components/Footer';
 
@@ -20,9 +19,6 @@ const Restaurant = async ({ params }: RestaurantProps) => {
                 <LocationFullInfo location={location} />
                 <Spacer />
             </div>
-            <Spacer size="md" />
-            <OpeningHours schedule={location.schedule} />
-            <Spacer />
             <Footer />
         </main>
     );

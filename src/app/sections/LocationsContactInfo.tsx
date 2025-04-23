@@ -5,6 +5,8 @@ import Spacer from '../components/Spacer';
 import LocationDescriptor from '../components/LocationDescriptor';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '../constants/animations';
+import imageRestaurant from '../images/restaurant-environment.webp'
+import Image from 'next/image';
 
 const LocationsContactInfo = () => {
     return (
@@ -32,7 +34,13 @@ const LocationsContactInfo = () => {
             <motion.div
                 className="col-span-12 lg:col-start-7 lg:col-span-6 bg-backgroundLight aspect-square"
                 variants={itemVariants}
-            />
+            >
+                <Image
+                    src={imageRestaurant}
+                    alt=""
+                    className="object-cover w-full h-full brightness-[0.8]"
+                />
+            </motion.div>
         </motion.section>
     );
 };
