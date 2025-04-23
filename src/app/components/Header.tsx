@@ -15,7 +15,7 @@ const Header = () => {
     const { toggleModal } = useModal();
     const { scrollY } = useScroll();
     const [isHidden, setIsHidden] = useState(false);
-    const [width, setWidth] = useState(window?.innerWidth);
+    const [width, setWidth] = useState(0);
     const { theme } = resolveConfig(tailwindConfig);
     const isMobile = width <= Number(theme.screens.lg.split('px')[0]);
     const variants = {
@@ -32,6 +32,8 @@ const Header = () => {
     };
 
     useEffect(() => {
+        // Set initial width after component mount
+        setWidth(window.innerWidth);
         window.addEventListener('resize', handleWindowSizeChange);
         return () => {
             window.removeEventListener('resize', handleWindowSizeChange);
