@@ -10,10 +10,6 @@
     --foreground-dark: #464646;
 }
 
-html {
-    min-width: 420px;
-}
-
 html::-webkit-scrollbar {
     width: 4px;
 }
