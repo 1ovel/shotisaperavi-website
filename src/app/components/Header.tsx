@@ -52,7 +52,7 @@ const Header = () => {
             animate={!isHidden || isMobile ? 'visible' : 'hidden'}
             transition={{ duration: 0.13, type: 'tween' }}
             variants={variants}
-            className="fixed top-0 left-0 right-0 z-50 min-h-24 flex py-xsSpacing uppercase items-center text-lg mx-5 md:mx-10"
+            className="fixed top-0 left-0 right-0 z-50 min-h-24 flex py-xsSpacing uppercase items-center text-lg mx-5 md:mx-10 bg-gradient-to-b from-background to-transparent"
         >
             <div className="w-full flex justify-end lg:justify-normal min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px]">
                 <nav className="flex-1 hidden lg:block">
