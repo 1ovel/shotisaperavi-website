@@ -31,7 +31,7 @@ const LocationsGallery = () => {
                 {locations.map((location) => {
                     return (
                         <motion.div
-                            className="col-span-12 md:col-span-6 lg:col-span-3 aspect-[2/3]"
+                            className="col-span-12 md:col-span-6 lg:col-span-3 aspect-square md:aspect-[2/3]"
                             key={location.title + '-location-card'}
                             variants={itemVariants}
                         >
