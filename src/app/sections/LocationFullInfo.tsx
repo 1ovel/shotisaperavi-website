@@ -20,17 +20,17 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
     return (
         <motion.section
             key={pathname}
-            className="grid gap-xsSpacing grid-cols-12 grid-rows-2 w-full relative flex-1"
+            className="grid gap-xsSpacing grid-cols-12 grid-rows-auto w-full relative"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
-            <div className="col-span-12 lg:col-span-6 row-span-2 relative order-1 lg:order-none">
+            <div className="col-span-12 lg:col-span-6 row-span-1 lg:row-span-2 relative order-1 lg:order-none mb-4 lg:mb-0">
                 <motion.div
                     variants={itemVariants}
                     className="grid grid-cols-6 grid-rows-1 h-full"
                 >
-                    <div className="col-span-6 lg:col-span-4 row-span-1 h-64 lg:h-full">
+                    <div className="col-span-6 lg:col-span-4 row-span-1 h-48 sm:h-64 lg:h-full">
                         <Image
                             src={location.imageSrc}
                             alt=""
@@ -46,7 +46,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                     >
                         <motion.h1
                             variants={itemVariants}
-                            className="text-[80px] lg:text-[150px] uppercase font-heading text-center lg:text-left lg:col-start-2 lg:col-span-4"
+                            className="text-[40px] sm:text-[60px] lg:text-[130px] xl:text-[150px] uppercase font-heading text-center lg:text-left lg:col-start-2 lg:col-span-4"
                         >
                             {location.title}
                         </motion.h1>
@@ -54,12 +54,12 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                 </div>
             </div>
 
-            <div className="col-span-12 lg:col-span-6 row-span-2 order-2 lg:order-none">
+            <div className="col-span-12 lg:col-span-6 row-span-1 lg:row-span-2 order-2 lg:order-none">
                 <motion.div variants={itemVariants}>
-                    <h2 className="uppercase font-heading text-[40px] leading-none">
+                    <h2 className="uppercase font-heading text-[28px] sm:text-[32px] lg:text-[40px] leading-tight">
                         {location.address}
                     </h2>
-                    <span className="font-decoration text-foregroundDark leading-none text-xl">
+                    <span className="font-decoration text-foregroundDark leading-none text-lg sm:text-xl">
                         მენიუ
                     </span>
                 </motion.div>
@@ -67,20 +67,20 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                 <div className="flex flex-col gap-2">
                     <motion.p
                         variants={itemVariants}
-                        className="text-foregroundGrey text-[16px]"
+                        className="text-foregroundGrey text-[14px] sm:text-[16px]"
                     >
                         {location.fullDescription}
                     </motion.p>
-                    <div className="flex gap-xsSpacing">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-xsSpacing">
                         <motion.p
                             variants={itemVariants}
-                            className="text-foregroundWhite text-[24px] font-extralight"
+                            className="text-foregroundWhite text-[20px] sm:text-[24px] font-extralight"
                         >
                             {location.phone}
                         </motion.p>
                         <motion.p
                             variants={itemVariants}
-                            className="text-foregroundWhite text-[24px] font-extralight"
+                            className="text-foregroundWhite text-[20px] sm:text-[24px] font-extralight"
                         >
                             {location.email}
                         </motion.p>
@@ -97,7 +97,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
 
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col gap-2"
+                    className="flex flex-col gap-2 mb-8 lg:mb-0"
                 >
                     <Button title="Book a table" />
                     <Button title="Open menu" />

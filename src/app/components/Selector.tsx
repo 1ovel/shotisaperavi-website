@@ -13,7 +13,9 @@ const Selector = ({ size = 'md', items, selectedItemTitle }: SelectorProps) => {
         lg: 'text-[24px]',
     };
     return (
-        <div className={'flex gap-xsSpacing ' + styles[size]}>
+        <div
+            className={'flex flex-wrap gap-x-xsSpacing gap-y-2' + styles[size]}
+        >
             {items.map((item, index) => {
                 const isLast = index + 1 === items.length;
                 const isSelected = item.title === selectedItemTitle;

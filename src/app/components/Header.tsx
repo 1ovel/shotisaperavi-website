@@ -1,23 +1,21 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import logoImage from '../images/logo.svg';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
-import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '../../../tailwind.config';
 import { useModal } from '@faceless-ui/modal';
 import { locations } from '../data/locations';
 import Link from 'next/link';
 import NavLink from './NavLink';
+import { useWindowSize } from '../hooks/useWindowSize';
 
 const Header = () => {
     const { toggleModal } = useModal();
     const { scrollY } = useScroll();
     const [isHidden, setIsHidden] = useState(false);
-    const [width, setWidth] = useState(0);
-    const { theme } = resolveConfig(tailwindConfig);
-    const isMobile = width <= Number(theme.screens.lg.split('px')[0]);
+    const { isMobile } = useWindowSize();
+
     const variants = {
         hidden: {
             y: '-100%',
@@ -26,19 +24,6 @@ const Header = () => {
             y: '0%',
         },
     };
-
-    const handleWindowSizeChange = () => {
-        setWidth(window.innerWidth);
-    };
-
-    useEffect(() => {
-        // Set initial width after component mount
-        setWidth(window.innerWidth);
-        window.addEventListener('resize', handleWindowSizeChange);
-        return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
-        };
-    }, []);
 
     useMotionValueEvent(scrollY, 'change', (current) => {
         const prev = scrollY.getPrevious();
@@ -52,9 +37,9 @@ const Header = () => {
             animate={!isHidden || isMobile ? 'visible' : 'hidden'}
             transition={{ duration: 0.13, type: 'tween' }}
             variants={variants}
-            className="fixed top-0 left-0 right-0 z-50 min-h-24 flex py-xsSpacing uppercase items-center text-lg mx-5 md:mx-10 bg-gradient-to-b from-background to-transparent"
+            className="fixed top-0 left-0 right-0 z-50 min-h-24 flex py-xsSpacing uppercase items-center text-lg bg-gradient-to-b from-background to-transparent w-full"
         >
-            <div className="w-full flex justify-end lg:justify-normal min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px]">
+            <div className="w-full flex justify-between lg:justify-normal min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px] mx-5 md:mx-10">
                 <nav className="flex-1 hidden lg:block">
                     <ul className="flex gap-xsSpacing">
                         {locations.map((l) => (
@@ -71,7 +56,7 @@ const Header = () => {
                 <Link href={'/'}>
                     <Image
                         src={logoImage}
-                        className="hidden lg:block w-48 lg:w-80"
+                        className="w-48 lg:w-72"
                         alt="Shoti & Saperavi logo"
                     />
                 </Link>

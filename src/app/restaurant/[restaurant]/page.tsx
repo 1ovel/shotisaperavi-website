@@ -13,11 +13,11 @@ const Restaurant = async ({ params }: RestaurantProps) => {
     const location = locations.find((l) => l.slug === restaurant)!;
 
     return (
-        <main>
-            <div className="h-screen flex flex-col">
+        <main className="flex flex-col min-h-screen">
+            <div className="flex-1">
                 <Spacer />
                 <LocationFullInfo location={location} />
-                <Spacer />
+                <Spacer size="md" />
             </div>
             <Footer />
         </main>

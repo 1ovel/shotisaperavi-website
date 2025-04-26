@@ -32,7 +32,10 @@ const TitleWithInfo = ({
             whileInView="visible"
             viewport={{ once: true, amount: 'all' }}
         >
-            <motion.div className="col-span-12 lg:col-span-3" variants={itemVariants}>
+            <motion.div
+                className="col-span-12 lg:col-span-3"
+                variants={itemVariants}
+            >
                 <h2 className="uppercase font-heading text-[40px] leading-none">
                     {title}
                 </h2>
@@ -42,20 +45,20 @@ const TitleWithInfo = ({
             </motion.div>
             <div className="col-span-12 lg:col-start-7 lg:col-span-6 grid gap-xsSpacing grid-cols-2">
                 <motion.h3
-                    className="uppercase text-[24px] col-span-2 whitespace-pre-line"
+                    className="uppercase text-[20px] lg:text-[24px] col-span-2 whitespace-pre-line"
                     variants={itemVariants}
                 >
                     {subtitle}
                 </motion.h3>
                 <motion.p
                     variants={itemVariants}
-                    className="text-foregroundGrey col-span-1 text-[16px]"
+                    className="text-foregroundGrey col-span-2 text-[16px] lg:col-span-2"
                 >
                     {textLeft}
                 </motion.p>
                 <motion.p
                     variants={itemVariants}
-                    className="text-foregroundGrey col-span-1 text-[16px]"
+                    className="text-foregroundGrey col-span-2 text-[16px] lg:col-span-2"
                 >
                     {textRight}
                 </motion.p>
