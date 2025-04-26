@@ -46,7 +46,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                     >
                         <motion.h1
                             variants={itemVariants}
-                            className="text-[40px] sm:text-[60px] lg:text-[130px] xl:text-[150px] uppercase font-heading text-center lg:text-left lg:col-start-2 lg:col-span-4"
+                            className="text-[60px] sm:text-[80px] lg:text-[130px] xl:text-[150px] uppercase font-heading text-center lg:text-left lg:col-start-2 lg:col-span-4"
                         >
                             {location.title}
                         </motion.h1>
