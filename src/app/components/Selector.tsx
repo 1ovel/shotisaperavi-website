@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { SelectorItem } from '../types/SelectorItem';
+import { Typography } from './Typography';
 
 interface SelectorProps {
     items: SelectorItem[];
@@ -27,14 +28,21 @@ const Selector = ({ size = 'md', items, selectedItemTitle }: SelectorProps) => {
                             onClick={item.onClick}
                             className={
                                 isSelected
-                                    ? 'text-foregroundWhite uppercase'
-                                    : 'text-foregroundGrey uppercase hover:text-foregroundWhite transition-all'
+                                    ? 'text-foregroundWhite'
+                                    : 'text-foregroundGrey hover:text-foregroundWhite transition-all'
                             }
                         >
-                            {item.title}
+                            <Typography variant="button">
+                                {item.title}
+                            </Typography>
                         </button>
                         {!isLast && (
-                            <span className="text-foregroundGrey">/</span>
+                            <Typography
+                                variant="button"
+                                className="text-foregroundGrey"
+                            >
+                                /
+                            </Typography>
                         )}
                     </Fragment>
                 );

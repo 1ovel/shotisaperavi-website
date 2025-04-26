@@ -3,6 +3,7 @@ import { LocationInfo } from '../types/LocationInfo';
 import arrowIcon from '../images/arrow.svg';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Typography } from './Typography';
 
 interface LocationCardProps {
     location: LocationInfo;
@@ -22,18 +23,24 @@ const LocationCard = ({ location }: LocationCardProps) => {
                 />
             </div>
             <div className="relative z-10">
-                <h4 className="uppercase text-[24px] text-left">
+                <Typography variant="h4" className="text-left">
                     {location.title}
-                </h4>
-                <p className="opacity-0 lg:group-hover:opacity-100 transition-all text-foregroundGrey uppercase text-left">
+                </Typography>
+                <Typography
+                    variant="body"
+                    className="opacity-0 lg:group-hover:opacity-100 transition-all uppercase text-left"
+                >
                     {location.address}
-                </p>
+                </Typography>
             </div>
             <div className="relative z-10 lg:opacity-0 group-hover:opacity-100 transition-all">
-                <div className="uppercase text-lg flex items-center gap-4">
+                <Typography
+                    variant="button"
+                    className="flex items-center gap-4"
+                >
                     More info
                     <Image src={arrowIcon} alt="arrow right" />
-                </div>
+                </Typography>
             </div>
         </Link>
     );

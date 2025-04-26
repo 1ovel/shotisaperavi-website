@@ -7,6 +7,7 @@ import Selector from './Selector';
 import Spacer from './Spacer';
 import { AnimatePresence, motion } from 'motion/react';
 import { itemVariants } from '../constants/animations';
+import { Typography } from './Typography';
 
 const LocationDescriptor = () => {
     const [selectedLocationTitle, setSelectedLocationTitle] = useState(
@@ -40,18 +41,21 @@ const LocationDescriptor = () => {
                     animate="visible"
                     exit="hidden"
                 >
-                    <h3 className="text-foregroundWhite text-[24px] mb-xsSpacing uppercase">
+                    <Typography
+                        variant="h3"
+                        className="mb-xsSpacing text-foregroundWhite"
+                    >
                         {selectedLocation.address}
-                    </h3>
-                    <p className="text-foregroundGrey text-[16px] mb-xsSpacing">
+                    </Typography>
+                    <Typography variant="body" className="mb-xsSpacing">
                         {selectedLocation.description}
-                    </p>
-                    <p className="text-foregroundWhite text-[24px] font-extralight">
+                    </Typography>
+                    <Typography variant="descriptor">
                         {selectedLocation.phone}
-                    </p>
-                    <p className="text-foregroundWhite text-[24px] font-extralight">
+                    </Typography>
+                    <Typography variant="descriptor">
                         {selectedLocation.email}
-                    </p>
+                    </Typography>
                 </motion.div>
             </AnimatePresence>
         </div>

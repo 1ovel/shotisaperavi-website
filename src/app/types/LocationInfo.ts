@@ -2,6 +2,7 @@ import { StaticImageData } from 'next/image';
 import { Schedule } from './Schedule';
 
 export interface LocationInfo {
+    id: string;
     slug: string;
     title: string;
     address: string;

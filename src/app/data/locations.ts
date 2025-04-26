@@ -6,6 +6,7 @@ import imageWineAlt from '@/app/images/photo-wine-alt.webp';
 
 export const locations: LocationInfo[] = [
     {
+        id: 'helsinki',
         slug: 'helsinki',
         title: 'Helsinki',
         address: 'Kasarmikatu 54',
@@ -35,6 +36,7 @@ export const locations: LocationInfo[] = [
         ],
     },
     {
+        id: 'espoo',
         slug: 'espoo',
         title: 'Espoo',
         address: 'Espoonlahdenkatu 54',
@@ -64,6 +66,7 @@ export const locations: LocationInfo[] = [
         ],
     },
     {
+        id: 'turku',
         slug: 'turku',
         title: 'Turku',
         address: 'Eerikinkatu 90',
@@ -93,6 +96,7 @@ export const locations: LocationInfo[] = [
         ],
     },
     {
+        id: 'tampere',
         slug: 'tampere',
         title: 'Tampere',
         address: 'Rautatienkatu 72',

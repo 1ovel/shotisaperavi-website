@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '../constants/animations';
 import { Schedule } from '../types/Schedule';
+import { Typography } from '../components/Typography';
 
 interface OpeningHoursProps {
     schedule: Schedule;
@@ -14,11 +15,8 @@ const OpeningHours = ({ schedule }: OpeningHoursProps) => {
         <motion.section
             className="grid gap-xsSpacing grid-cols-12 w-full"
             variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
         >
-            <div className="col-span-12 flex flex-col uppercase text-[24px] text-foregroundGrey">
+            <div className="col-span-12 flex flex-col">
                 {schedule.map((item, index) => {
                     const isLast = schedule.length === index + 1;
                     return (
@@ -31,10 +29,15 @@ const OpeningHours = ({ schedule }: OpeningHoursProps) => {
                             }
                             key={item.days + 'schedule-item'}
                         >
-                            <span>{item.days}</span>
-                            <span>
+                            <Typography
+                                variant="descriptor"
+                                className="uppercase"
+                            >
+                                {item.days}
+                            </Typography>
+                            <Typography variant="descriptor">
                                 {item.openTime} - {item.closeTime}
-                            </span>
+                            </Typography>
                         </motion.div>
                     );
                 })}

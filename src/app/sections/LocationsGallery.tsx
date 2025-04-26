@@ -7,6 +7,7 @@ import { locations } from '../data/locations';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '../constants/animations';
 import { useWindowSize } from '../hooks/useWindowSize';
+import { Typography } from '../components/Typography';
 
 const LocationsGallery = () => {
     const { isMobile } = useWindowSize();
@@ -19,12 +20,8 @@ const LocationsGallery = () => {
             viewport={{ once: true, amount: isMobile ? 0.2 : 0.7 }}
         >
             <motion.div variants={itemVariants}>
-                <h2 className="uppercase font-heading text-[40px] leading-none">
-                    Locations
-                </h2>
-                <span className="font-decoration text-foregroundDark leading-none text-xl">
-                    ლოკაციები
-                </span>
+                <Typography variant="h2">Locations</Typography>
+                <Typography variant="decoration">ლოკაციები</Typography>
             </motion.div>
             <Spacer size="md" />
             <div className="grid gap-xsSpacing grid-cols-12 w-full">

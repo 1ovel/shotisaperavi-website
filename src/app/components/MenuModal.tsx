@@ -6,6 +6,7 @@ import React from 'react';
 import closeIcon from '../images/cross.svg';
 import Link from 'next/link';
 import { locations } from '../data/locations';
+import { Typography } from './Typography';
 
 const MenuModal = () => {
     const { toggleModal } = useModal();
@@ -13,7 +14,7 @@ const MenuModal = () => {
     return (
         <Modal
             slug="menu"
-            className="flex w-screen h-screen bg-background justify-center items-center text-white text-5xl relative"
+            className="flex w-screen h-screen bg-background justify-center items-center relative"
         >
             <Image
                 src={closeIcon}
@@ -28,12 +29,25 @@ const MenuModal = () => {
                             href={`/restaurant/${l.slug}`}
                             onClick={() => toggleModal('menu')}
                         >
-                            {l.title}
+                            <Typography
+                                variant="h2"
+                                className="text-foregroundWhite"
+                            >
+                                {l.title}
+                            </Typography>
                         </Link>
                     </li>
                 ))}
-                <li>Menu</li>
-                <li>Contact us</li>
+                <li>
+                    <Typography variant="h2" className="text-foregroundWhite">
+                        Menu
+                    </Typography>
+                </li>
+                <li>
+                    <Typography variant="h2" className="text-foregroundWhite">
+                        Contact us
+                    </Typography>
+                </li>
             </ul>
         </Modal>
     );

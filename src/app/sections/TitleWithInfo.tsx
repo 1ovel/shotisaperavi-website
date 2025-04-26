@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import Button from '../components/Button';
 import { containerVariants, itemVariants } from '../constants/animations';
+import { Typography } from '../components/Typography';
 
 interface TitleWithInfoProps {
     title: string;
@@ -36,34 +37,24 @@ const TitleWithInfo = ({
                 className="col-span-12 lg:col-span-3"
                 variants={itemVariants}
             >
-                <h2 className="uppercase font-heading text-[40px] leading-none">
-                    {title}
-                </h2>
-                <span className="font-decoration text-foregroundDark leading-none text-xl">
-                    {decoration}
-                </span>
+                <Typography variant="h2">{title}</Typography>
+                <Typography variant="decoration">{decoration}</Typography>
             </motion.div>
             <div className="col-span-12 lg:col-start-7 lg:col-span-6 grid gap-xsSpacing grid-cols-2">
-                <motion.h3
-                    className="uppercase text-[20px] lg:text-[24px] col-span-2 whitespace-pre-line"
+                <motion.div
+                    className="col-span-2 whitespace-pre-line"
                     variants={itemVariants}
                 >
-                    {subtitle}
-                </motion.h3>
-                <motion.p
-                    variants={itemVariants}
-                    className="text-foregroundGrey col-span-2 text-[16px] lg:col-span-2"
-                >
-                    {textLeft}
-                </motion.p>
-                <motion.p
-                    variants={itemVariants}
-                    className="text-foregroundGrey col-span-2 text-[16px] lg:col-span-2"
-                >
-                    {textRight}
-                </motion.p>
+                    <Typography variant="h4">{subtitle}</Typography>
+                </motion.div>
                 <motion.div variants={itemVariants} className="col-span-2">
-                    <Button title={buttonText} onClick={onButtonClick} />
+                    <Typography variant="body">{textLeft}</Typography>
+                </motion.div>
+                <motion.div variants={itemVariants} className="col-span-2">
+                    <Typography variant="body">{textRight}</Typography>
+                </motion.div>
+                <motion.div variants={itemVariants} className="col-span-2">
+                    <Button onClick={onButtonClick}>{buttonText}</Button>
                 </motion.div>
             </div>
         </motion.section>
