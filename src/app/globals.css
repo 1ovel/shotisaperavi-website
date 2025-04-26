@@ -8,10 +8,17 @@
     --foreground-white: #ffffff;
     --foreground-grey: #888888;
     --foreground-dark: #464646;
+    --scrollbar-width: 4px;
+}
+
+html {
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
+    padding-right: var(--scrollbar-width);
 }
 
 html::-webkit-scrollbar {
-    width: 4px;
+    width: var(--scrollbar-width);
 }
 
 html::-webkit-scrollbar-track {
@@ -20,4 +27,9 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb {
     border: 3px solid var(--foreground-dark);
+}
+
+body {
+    overflow-x: hidden;
+    width: 100%;
 }
