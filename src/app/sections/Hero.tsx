@@ -11,27 +11,11 @@ import { Typography } from '../components/Typography';
 const Hero = () => {
     return (
         <motion.section
-            className="grid lg:gap-xsSpacing grid-cols-12 grid-rows-4 w-full relative flex-1"
+            className="grid lg:gap-xsSpacing grid-cols-12 grid-rows-4 w-full relative flex-1 h-max"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
         >
-            <motion.div variants={itemVariants}>
-                <Typography
-                    variant="decoration"
-                    className="absolute top-0 left-0"
-                >
-                    ღვინო
-                </Typography>
-            </motion.div>
-            <motion.div variants={itemVariants}>
-                <Typography
-                    variant="decoration"
-                    className="absolute bottom-0 left-0 lg:left-auto lg:right-0"
-                >
-                    საკვები
-                </Typography>
-            </motion.div>
             <motion.div
                 variants={itemVariants}
                 className="hidden lg:block col-span-2 col-start-4 row-start-3 row-span-2"
@@ -71,6 +55,24 @@ const Hero = () => {
                     <Typography variant="h1">Tastes</Typography>
                 </motion.div>
             </div>
+
+            <motion.div
+                variants={itemVariants}
+                className="absolute w-full h-full"
+            >
+                <Typography
+                    variant="decoration"
+                    className="absolute top-0 left-0"
+                >
+                    ღვინო
+                </Typography>
+                <Typography
+                    variant="decoration"
+                    className="absolute bottom-0 left-0 lg:left-auto lg:right-0"
+                >
+                    საკვები
+                </Typography>
+            </motion.div>
         </motion.section>
     );
 };
