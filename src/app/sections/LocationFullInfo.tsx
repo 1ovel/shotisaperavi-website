@@ -26,12 +26,12 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
             initial="hidden"
             animate="visible"
         >
-            <div className="col-span-12 2xl:col-span-6 row-span-1 2xl:row-span-2 relative order-1 2xl:order-none mb-4 2xl:mb-0">
+            <div className="col-span-12 lg:col-span-6 row-span-1 lg:row-span-2 relative order-1 lg:order-none mb-4 lg:mb-0">
                 <motion.div
                     variants={itemVariants}
                     className="grid grid-cols-6 grid-rows-1 h-full"
                 >
-                    <div className="col-span-6 2xl:col-span-4 row-span-1 h-48 sm:h-64 2xl:h-full">
+                    <div className="col-span-6 lg:col-span-4 row-span-1 h-48 sm:h-64 lg:h-full">
                         <Image
                             src={location.imageSrc}
                             alt=""
@@ -40,16 +40,19 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                     </div>
                 </motion.div>
 
-                <div className="absolute inset-0 flex items-center justify-center 2xl:block 2xl:inset-auto 2xl:top-1/2 2xl:-translate-y-1/2">
+                <div className="absolute inset-0 flex items-center justify-center lg:block lg:inset-auto lg:top-1/2 lg:-translate-y-1/2">
                     <motion.div
                         variants={itemVariants}
-                        className="w-full 2xl:grid 2xl:grid-cols-6 2xl:grid-rows-1"
+                        className="w-full lg:grid lg:grid-cols-6 lg:grid-rows-1"
                     >
                         <motion.div
                             variants={itemVariants}
-                            className="text-center 2xl:text-left 2xl:col-start-2 2xl:col-span-4"
+                            className="text-center lg:text-left lg:col-start-2 lg:col-span-4"
                         >
-                            <Typography variant="h1">
+                            <Typography
+                                variant="h1"
+                                className="lg:text-[90px] xl:text-[120px] 2xl:text-[140px] 3xl:text-[170px]"
+                            >
                                 {location.title}
                             </Typography>
                         </motion.div>
@@ -57,7 +60,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                 </div>
             </div>
 
-            <div className="col-span-12 2xl:col-span-6 row-span-1 2xl:row-span-2 order-2 2xl:order-none">
+            <div className="col-span-12 lg:col-span-6 row-span-1 lg:row-span-2 order-2 lg:order-none">
                 <motion.div variants={itemVariants}>
                     <Typography variant="h3">{location.address}</Typography>
                     <Typography variant="decoration">მენიუ</Typography>
@@ -65,7 +68,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                 <Spacer size="md" />
                 <div className="flex flex-col gap-2">
                     <motion.div variants={itemVariants}>
-                        <Typography variant="caption">
+                        <Typography variant="body">
                             {location.fullDescription}
                         </Typography>
                     </motion.div>
@@ -93,7 +96,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
 
                 <motion.div
                     variants={itemVariants}
-                    className="flex flex-col gap-2 mb-8 2xl:mb-0"
+                    className="flex flex-col gap-2 mb-8 lg:mb-0"
                 >
                     <Button href={`/menu?location=${location.id}`}>
                         View Menu

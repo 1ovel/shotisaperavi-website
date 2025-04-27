@@ -20,10 +20,10 @@ interface TypographyProps {
 }
 
 const variantStyles: Record<TypographyVariant, string> = {
-    h1: 'font-heading text-[60px] sm:text-[80px] lg:text-[130px] xl:text-[120px] 2xl:text-[190px] uppercase leading-none',
+    h1: 'font-heading text-[60px] sm:text-[80px] lg:text-[110px] xl:text-[130px] 2xl:text-[170px] uppercase leading-none',
     h2: 'font-heading text-[40px] leading-none uppercase',
     h3: 'font-heading text-[28px] sm:text-[32px] lg:text-[40px] leading-tight uppercase',
-    h4: 'uppercase text-[24px]',
+    h4: 'uppercase text-[20px] md:text-[24px]',
     body: 'text-lg text-foregroundGrey',
     caption: 'text-[14px] sm:text-[16px] text-foregroundGrey',
     button: 'uppercase text-lg',

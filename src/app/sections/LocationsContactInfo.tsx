@@ -17,7 +17,7 @@ const LocationsContactInfo = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
         >
-            <div className="col-span-12 lg:col-span-5">
+            <div className="col-span-12 lg:col-span-5 min-h-[500px] lg:min-h-auto">
                 <motion.div variants={itemVariants}>
                     <h2 className="uppercase font-heading text-[40px] leading-none">
                         How to find us
