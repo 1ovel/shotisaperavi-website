@@ -10,7 +10,7 @@ import { SelectorItem } from '../types/SelectorItem';
 import { locations } from '../data/locations';
 import Image from 'next/image';
 import { Typography } from '../components/Typography';
-import imageBread from '../images/photo-bread.webp';
+import imageMenu from '../images/menu-photo.webp';
 import Selector from '../components/Selector';
 import Menu from '../components/Menu';
 
@@ -54,7 +54,7 @@ const MenuPage = () => {
                         >
                             <div className="w-full h-full relative">
                                 <Image
-                                    src={imageBread}
+                                    src={imageMenu}
                                     alt=""
                                     fill
                                     className="object-cover brightness-[0.8]"
