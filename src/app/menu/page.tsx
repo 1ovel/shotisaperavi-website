@@ -13,17 +13,29 @@ import { Typography } from '../components/Typography';
 import imageMenu from '../images/menu-photo.webp';
 import Selector from '../components/Selector';
 import Menu from '../components/Menu';
+import { useSearchParams, useRouter } from 'next/navigation';
 
 const MenuPage = () => {
+    const searchParams = useSearchParams();
+    const router = useRouter();
+    const locationIdFromUrl = searchParams.get('location');
+
     const [selectedLocationId, setSelectedLocationId] = useState(
-        locations[0].id
+        locationIdFromUrl &&
+            locations.some((loc) => loc.id === locationIdFromUrl)
+            ? locationIdFromUrl
+            : locations[0].id
     );
     const [selectedMenuId, setSelectedMenuId] = useState(selectedLocationId);
+
     const locationSelectorItems: SelectorItem[] = locations.map((location) => {
         return {
             id: location.id,
             title: location.title,
-            onClick: () => setSelectedLocationId(location.id),
+            onClick: () => {
+                setSelectedLocationId(location.id);
+                router.push(`/menu?location=${location.id}`);
+            },
         };
     });
 
