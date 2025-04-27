@@ -99,10 +99,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                     className="flex flex-col gap-2 mb-8 lg:mb-0"
                 >
                     <Button href={`/menu?location=${location.id}`}>
-                        View Menu
-                    </Button>
-                    <Button href={`/about?location=${location.id}`}>
-                        About Us
+                        Open Menu
                     </Button>
                 </motion.div>
             </div>
