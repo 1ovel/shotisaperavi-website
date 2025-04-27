@@ -40,8 +40,21 @@ const MenuPage = () => {
     });
 
     useEffect(() => {
+        if (locationIdFromUrl) {
+            setSelectedMenuId(
+                locations.some((loc) => loc.id === locationIdFromUrl)
+                    ? locationIdFromUrl
+                    : selectedLocationId
+            );
+            setSelectedLocationId(
+                locations.some((loc) => loc.id === locationIdFromUrl)
+                    ? locationIdFromUrl
+                    : selectedLocationId
+            );
+            return;
+        }
         setSelectedMenuId(selectedLocationId);
-    }, [selectedLocationId]);
+    }, [selectedLocationId, locationIdFromUrl]);
 
     const selectedMenu = useMemo(() => {
         return menus.find((menu) => menu.id === selectedMenuId);
