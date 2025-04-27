@@ -15,6 +15,7 @@ html {
     overflow-y: scroll;
     scrollbar-gutter: stable;
     padding-right: var(--scrollbar-width);
+    scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {

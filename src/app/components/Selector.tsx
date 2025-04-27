@@ -4,11 +4,11 @@ import { Typography } from './Typography';
 
 interface SelectorProps {
     items: SelectorItem[];
-    selectedItemTitle: string;
+    selectedItemId: string;
     size?: 'md' | 'lg';
 }
 
-const Selector = ({ size = 'md', items, selectedItemTitle }: SelectorProps) => {
+const Selector = ({ size = 'md', items, selectedItemId }: SelectorProps) => {
     const styles = {
         md: 'text-lg',
         lg: 'text-[24px]',
@@ -19,11 +19,9 @@ const Selector = ({ size = 'md', items, selectedItemTitle }: SelectorProps) => {
         >
             {items.map((item, index) => {
                 const isLast = index + 1 === items.length;
-                const isSelected = item.title === selectedItemTitle;
+                const isSelected = item.id === selectedItemId;
                 return (
-                    <Fragment
-                        key={'selector-button-' + item.title + '-' + index}
-                    >
+                    <Fragment key={'selector-button-' + item.id + '-' + index}>
                         <button
                             onClick={item.onClick}
                             className={

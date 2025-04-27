@@ -10,32 +10,30 @@ import { itemVariants } from '../constants/animations';
 import { Typography } from './Typography';
 
 const LocationDescriptor = () => {
-    const [selectedLocationTitle, setSelectedLocationTitle] = useState(
-        locations[0].title
+    const [selectedLocationId, setSelectedLocationId] = useState(
+        locations[0].id
     );
-    const locationSelectorItems: SelectorItem[] = locations.map((locaiton) => {
+    const locationSelectorItems: SelectorItem[] = locations.map((location) => {
         return {
-            title: locaiton.title,
-            onClick: () => setSelectedLocationTitle(locaiton.title),
+            id: location.id,
+            title: location.title,
+            onClick: () => setSelectedLocationId(location.id),
         };
     });
     const selectedLocation = useMemo(
-        () =>
-            locations.find(
-                (location) => location.title === selectedLocationTitle
-            )!,
-        [selectedLocationTitle]
+        () => locations.find((location) => location.id === selectedLocationId)!,
+        [selectedLocationId]
     );
     return (
         <div>
             <Selector
                 items={locationSelectorItems}
-                selectedItemTitle={selectedLocationTitle}
+                selectedItemId={selectedLocationId}
             />
             <Spacer size="md" />
             <AnimatePresence mode="wait">
                 <motion.div
-                    key={selectedLocationTitle}
+                    key={selectedLocationId}
                     variants={itemVariants}
                     initial="hidden"
                     animate="visible"
