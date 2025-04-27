@@ -63,8 +63,7 @@ const Header = () => {
 
                 <nav className="flex-1 hidden lg:block">
                     <ul className="flex gap-xsSpacing justify-end">
-                        <NavLink slug="menu" title="Menu" href="/menu" />
-                        <NavLink slug="about" title="About" href="/about" />
+                        <NavLink slug="menu" title="Our Menu" href="/menu" />
                     </ul>
                 </nav>
 
