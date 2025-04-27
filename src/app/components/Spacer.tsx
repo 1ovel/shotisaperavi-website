@@ -1,4 +1,5 @@
 import React from 'react';
+import { cn } from '../utils/cn';
 
 interface SpacerProps {
     size?: 'md' | 'lg';
@@ -7,9 +8,9 @@ interface SpacerProps {
 const Spacer = ({ size = 'lg' }: SpacerProps) => {
     const styles = {
         md: 'h-mdSpacing',
-        lg: 'h-lgSpacing',
+        lg: 'max-h-lgSpacing h-[15vh]',
     };
-    return <div className={styles[size]} />;
+    return <div className={cn(styles[size], 'shrink-0')} />;
 };
 
 export default Spacer;

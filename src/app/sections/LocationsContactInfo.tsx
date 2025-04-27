@@ -5,7 +5,7 @@ import Spacer from '../components/Spacer';
 import LocationDescriptor from '../components/LocationDescriptor';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '../constants/animations';
-import imageRestaurant from '../images/restaurant-environment.webp'
+import imageRestaurant from '../images/restaurant-environment.webp';
 import Image from 'next/image';
 
 const LocationsContactInfo = () => {
@@ -17,7 +17,7 @@ const LocationsContactInfo = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
         >
-            <div className="col-span-12 lg:col-span-4">
+            <div className="col-span-12 lg:col-span-5">
                 <motion.div variants={itemVariants}>
                     <h2 className="uppercase font-heading text-[40px] leading-none">
                         How to find us
