@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Location {
+  id              String        @id @default(uuid())
+  slug            String        @unique
+  title           String
+  address         String
+  description     String
+  fullDescription String        @db.Text
+  phone           String
+  email           String
+  imageSrc        String       
+  schedule        Schedule[]
+  menu           Menu?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model Schedule {
+  id         String   @id @default(uuid())
+  days       String
+  openTime   String
+  closeTime  String
+  location   Location @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  locationId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Menu {
+  id           String        @id @default(uuid())
+  location     Location      @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  locationId   String       @unique
+  menuSections MenuSection[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model MenuSection {
+  id          String     @id @default(uuid())
+  title       String
+  decorator   String
+  menuItems   MenuItem[]
+  menu        Menu       @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  menuId      String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model MenuItem {
+  id            String      @id @default(uuid())
+  title         String
+  description   String
+  price         Float
+  menuSection   MenuSection @relation(fields: [menuSectionId], references: [id], onDelete: Cascade)
+  menuSectionId String
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+} 

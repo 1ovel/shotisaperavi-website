@@ -1,5 +1,6 @@
 import { StaticImageData } from 'next/image';
 import { Schedule } from './Schedule';
+import { MenuInfo } from './MenuInfo';
 
 export interface LocationInfo {
     id: string;
@@ -7,9 +8,12 @@ export interface LocationInfo {
     title: string;
     address: string;
     description: string;
+    fullDescription: string;
     phone: string;
     email: string;
-    imageSrc: StaticImageData;
-    fullDescription: string;
+    imageSrc: string | StaticImageData;
     schedule: Schedule;
+    menu?: MenuInfo;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
