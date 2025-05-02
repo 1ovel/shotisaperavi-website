@@ -7,19 +7,17 @@ import Button from '../components/Button';
 import Image from 'next/image';
 import imageTableAlt from '@/app/images/photo-table-alt.webp';
 import { Input } from '@/components/Input';
-import { AnimatePresence, motion } from 'motion/react';
+import { motion } from 'motion/react';
 
 export default function AdminLogin() {
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
-        setIsLoading(true);
 
         try {
             const response = await fetch('/api/auth/login', {
@@ -41,14 +39,12 @@ export default function AdminLogin() {
             router.push('/admin/dashboard');
         } catch (err) {
             setError(err instanceof Error ? err.message : 'An error occurred');
-        } finally {
-            setIsLoading(false);
         }
     };
 
     return (
-        <motion.div layout className="min-h-screen flex">
-            <motion.div className="w-full md:w-1/2 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen flex">
+            <div className="w-full md:w-1/2 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
                         <Typography variant="h2">Login</Typography>
@@ -82,28 +78,22 @@ export default function AdminLogin() {
                                 ) => setPassword(e.target.value)}
                             />
                         </div>
-
                         {error && (
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    className="text-red-500 bg-red-900/30 p-2 text-sm text-center font-display"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                >
-                                    {error}
-                                </motion.div>
-                            </AnimatePresence>
+                            <motion.div
+                                className="text-red-500 bg-red-900/30 p-2 text-sm text-center font-display"
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -10 }}
+                            >
+                                {error}
+                            </motion.div>
                         )}
-
                         <div>
-                            <Button>
-                                {isLoading ? 'Signing in...' : 'Sign in'}
-                            </Button>
+                            <Button>Sign in</Button>
                         </div>
                     </form>
                 </div>
-            </motion.div>
+            </div>
 
             <div className="hidden md:block md:w-1/2 relative">
                 <Image
@@ -113,6 +103,6 @@ export default function AdminLogin() {
                     className="object-cover"
                 />
             </div>
-        </motion.div>
+        </div>
     );
 }
