@@ -5,7 +5,6 @@ import Header from './components/Header';
 import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
 import MenuModal from './components/MenuModal';
 
-
 export const metadata: Metadata = {
     title: 'Shoti & Saperavi',
     description: 'Shoti & Saperavi - Georgian Restaurant',
@@ -31,10 +30,8 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-
     return (
         <html lang="en">
-
             <body
                 className={`${displayFont.variable} ${headingFont.variable} ${decorationFont.variable} bg-background font-display text-foregroundWhite`}
             >
@@ -43,12 +40,10 @@ export default function RootLayout({
                     <div className="min-h-screen mx-5 md:mx-10 min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px] relative">
                         <Header />
                         {children}
-
                     </div>
                     <MenuModal />
                 </ModalProvider>
             </body>
-
         </html>
     );
 }

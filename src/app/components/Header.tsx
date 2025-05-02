@@ -9,12 +9,24 @@ import { locations } from '../data/locations';
 import Link from 'next/link';
 import NavLink from './NavLink';
 import { useWindowSize } from '../hooks/useWindowSize';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
+    const pathname = usePathname();
+    const isAdminPage = pathname?.startsWith('/admin');
     const { toggleModal } = useModal();
     const { scrollY } = useScroll();
     const [isHidden, setIsHidden] = useState(false);
     const { isMobile } = useWindowSize();
+
+    useMotionValueEvent(scrollY, 'change', (current) => {
+        const prev = scrollY.getPrevious();
+        if (!prev) return;
+        const diff = current - prev;
+        setIsHidden(diff > 0);
+    });
+
+    if (isAdminPage) return null;
 
     const variants = {
         hidden: {
@@ -24,13 +36,6 @@ const Header = () => {
             y: '0%',
         },
     };
-
-    useMotionValueEvent(scrollY, 'change', (current) => {
-        const prev = scrollY.getPrevious();
-        if (!prev) return;
-        const diff = current - prev;
-        setIsHidden(diff > 0);
-    });
 
     return (
         <motion.header
