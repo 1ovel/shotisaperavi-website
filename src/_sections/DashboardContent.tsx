@@ -39,7 +39,7 @@ const DashboardContent = () => {
                     />
                 </div>
             </div>
-            <div className="border border-backgroundLight col-span-3">
+            <div className="border border-backgroundLight col-start-10 col-span-3">
                 <DashboardCard
                     title="News"
                     description="Publish and edit news"
