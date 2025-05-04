@@ -3,25 +3,32 @@
 import Image from 'next/image';
 import React from 'react';
 import imageTable from '@/_images/table-at-georgian-restaurant.webp';
-import { Typography } from '@/_components/Typography';
-import Button from '@/_components/Button';
+import DashboardCard from '@/_components/DashboardCard';
 
 const DashboardContent = () => {
     return (
         <div className="grid grid-cols-12 relative grid-rows-2 gap-xsSpacing">
             <div className="border border-backgroundLight col-span-3 aspect-square">
-                <div className="w-full h-full flex flex-col justify-between hover:bg-backgroundLight transition-colors duration-200 p-4 cursor-pointer">
-                    <div>
-                        <Typography variant="h4">asdad</Typography>
-                        <Typography variant="body">
-                            Hahaha I am a little monkey
-                        </Typography>
-                    </div>
-                    <Button>asdad</Button>
-                </div>
+                <DashboardCard
+                    title="User management"
+                    description="Add, edit and delete admin users"
+                    link="/admin/users"
+                />
             </div>
-            <div className="border border-backgroundLight col-span-3 aspect-square"></div>
-            <div className="border border-backgroundLight col-start-10 col-span-3 aspect-square"></div>
+            <div className="border border-backgroundLight col-span-3 aspect-square">
+                <DashboardCard
+                    title="Locations & menu"
+                    description="Edit locations and menu"
+                    link="/admin/locations"
+                />
+            </div>
+            <div className="border border-backgroundLight col-span-6">
+                <DashboardCard
+                    title="Table booking"
+                    description="Manage table bookings"
+                    link="/admin/table-booking"
+                />
+            </div>
             <div className="border border-backgroundLight col-span-6">
                 <div className="w-full h-full relative">
                     <Image
@@ -32,7 +39,13 @@ const DashboardContent = () => {
                     />
                 </div>
             </div>
-            <div className="border border-backgroundLight col-span-6"></div>
+            <div className="border border-backgroundLight col-span-3">
+                <DashboardCard
+                    title="News"
+                    description="Publish and edit news"
+                    link="/admin/news"
+                />
+            </div>
         </div>
     );
 };
