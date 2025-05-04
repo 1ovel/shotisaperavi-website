@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import Button from '../components/Button';
-import { containerVariants, itemVariants } from '../constants/animations';
-import { Typography } from '../components/Typography';
+import Button from '@/_components/Button';
+import { containerVariants, itemVariants } from '@/_constants/animations';
+import { Typography } from '@/_components/Typography';
 
 interface TitleWithInfoProps {
     title: string;

@@ -1,8 +1,8 @@
 import React from 'react';
-import { MenuInfo } from '../types/MenuInfo';
+import { MenuInfo } from '@/app/types/MenuInfo';
 import { Typography } from './Typography';
 import { AnimatePresence, motion } from 'motion/react';
-import { itemVariants } from '../constants/animations';
+import { itemVariants } from '@/_constants/animations';
 
 interface MenuProps {
     menu: MenuInfo;

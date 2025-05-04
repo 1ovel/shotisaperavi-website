@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants } from '../constants/animations';
+import { containerVariants, itemVariants } from '@/_constants/animations';
 import Image from 'next/image';
-import Spacer from '../components/Spacer';
-import Button from '../components/Button';
-import { LocationInfo } from '../types/LocationInfo';
+import Spacer from '@/_components/Spacer';
+import Button from '@/_components/Button';
+import { LocationInfo } from '@/app/types/LocationInfo';
 import { usePathname } from 'next/navigation';
 import OpeningHours from './OpeningHours';
-import { Typography } from '../components/Typography';
+import { Typography } from '@/_components/Typography';
 
 interface LocationFullInfoProps {
     location: LocationInfo;

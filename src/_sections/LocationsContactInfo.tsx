@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import Spacer from '../components/Spacer';
-import LocationDescriptor from '../components/LocationDescriptor';
+import Spacer from '@/_components/Spacer';
+import LocationDescriptor from '@/_components/LocationDescriptor';
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants } from '../constants/animations';
-import imageRestaurant from '../images/restaurant-environment.webp';
+import { containerVariants, itemVariants } from '@/_constants/animations';
+import imageRestaurant from '@/_images/restaurant-environment.webp';
 import Image from 'next/image';
 
 const LocationsContactInfo = () => {

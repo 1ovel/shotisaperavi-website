@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { SelectorItem } from '../types/SelectorItem';
+import { SelectorItem } from '@/app/types/SelectorItem';
 import { Typography } from './Typography';
 
 interface SelectorProps {

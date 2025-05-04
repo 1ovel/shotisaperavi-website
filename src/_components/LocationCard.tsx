@@ -1,6 +1,6 @@
 import React from 'react';
-import { LocationInfo } from '../types/LocationInfo';
-import arrowIcon from '../images/arrow.svg';
+import { LocationInfo } from '@/app/types/LocationInfo';
+import arrowIcon from '@/_images/arrow.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Typography } from './Typography';

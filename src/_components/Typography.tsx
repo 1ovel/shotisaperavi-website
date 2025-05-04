@@ -1,5 +1,5 @@
 import React, { ReactNode, ElementType } from 'react';
-import { cn } from '../utils/cn';
+import { cn } from '@/_lib/cn';
 
 type TypographyVariant =
     | 'h1'

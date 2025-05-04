@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
-import Header from './components/Header';
+import Header from '@/_components/Header';
 import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
-import MenuModal from './components/MenuModal';
+import MenuModal from '@/_components/MenuModal';
 
 export const metadata: Metadata = {
     title: 'Shoti & Saperavi',
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
 };
 
 const displayFont = localFont({
-    src: 'fonts/Jost.ttf',
+    src: '../_fonts/Jost.ttf',
     variable: '--font-display',
 });
 
 const headingFont = localFont({
-    src: 'fonts/Felidae.ttf',
+    src: '../_fonts/Felidae.ttf',
     variable: '--font-heading',
 });
 
 const decorationFont = localFont({
-    src: 'fonts/3d_unicode.ttf',
+    src: '../_fonts/3d_unicode.ttf',
     variable: '--font-decoration',
 });
 

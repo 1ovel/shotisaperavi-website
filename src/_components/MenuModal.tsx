@@ -3,9 +3,9 @@
 import { Modal, useModal } from '@faceless-ui/modal';
 import Image from 'next/image';
 import React from 'react';
-import closeIcon from '../images/cross.svg';
+import closeIcon from '@/_images/cross.svg';
 import Link from 'next/link';
-import { locations } from '../data/locations';
+import { locations } from '@/_data/locations';
 import { Typography } from './Typography';
 
 const MenuModal = () => {

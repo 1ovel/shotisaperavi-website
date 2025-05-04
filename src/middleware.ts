@@ -1,42 +1,41 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { verifyToken } from './lib/auth';
+import { verifyToken } from './_lib/auth';
 
-export function middleware(request: NextRequest) {
-    const token = request.headers.get('authorization')?.split(' ')[1];
+const publicRoutes = ['/admin/login'];
 
-    // List of public paths that don't require authentication
-    const publicPaths = ['/api/auth/login'];
+export async function middleware(request: NextRequest) {
+    const isAccessingPublicRoute = publicRoutes.includes(
+        request.nextUrl.pathname
+    );
 
-    // Allow public paths
-    if (publicPaths.includes(request.nextUrl.pathname)) {
+    const cookie = request.cookies.get('session')?.value;
+
+    if (isAccessingPublicRoute && !cookie) {
         return NextResponse.next();
     }
 
-    if (!token) {
-        return NextResponse.json(
-            { error: 'Authentication required' },
-            { status: 401 }
-        );
+    if (!cookie) {
+        return NextResponse.redirect(new URL('/admin/login', request.url));
     }
 
-    const decoded = verifyToken(token);
+    const session = await verifyToken(cookie);
 
-    if (!decoded) {
-        return NextResponse.json({ error: 'Invalid token' }, { status: 401 });
+    if (isAccessingPublicRoute && !session) {
+        return NextResponse.next();
     }
 
-    // Add user ID to request headers for use in API routes
-    const requestHeaders = new Headers(request.headers);
-    requestHeaders.set('x-user-id', decoded.userId);
+    if (!session) {
+        return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
 
-    return NextResponse.next({
-        request: {
-            headers: requestHeaders,
-        },
-    });
+    if (isAccessingPublicRoute) {
+        return NextResponse.redirect(new URL('/admin/dashboard', request.url));
+    }
+
+    return NextResponse.next();
 }
 
 export const config = {
-    matcher: '/api/:path*',
+    matcher: '/admin/:path*',
 };

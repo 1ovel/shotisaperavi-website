@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import LocationCard from '../components/LocationCard';
-import Spacer from '../components/Spacer';
-import { locations } from '../data/locations';
+import LocationCard from '@/_components/LocationCard';
+import Spacer from '@/_components/Spacer';
+import { locations } from '@/_data/locations';
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants } from '../constants/animations';
-import { useWindowSize } from '../hooks/useWindowSize';
-import { Typography } from '../components/Typography';
+import { containerVariants, itemVariants } from '@/_constants/animations';
+import { useWindowSize } from '@/_hooks/useWindowSize';
+import { Typography } from '@/_components/Typography';
 
 const LocationsGallery = () => {
     const { isMobile } = useWindowSize();

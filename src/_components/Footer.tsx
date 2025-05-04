@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImage from '../images/logo.svg';
+import logoImage from '@/_images/logo.svg';
 import Image from 'next/image';
 import { Typography } from './Typography';
 

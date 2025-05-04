@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { containerVariants, itemVariants } from '../constants/animations';
-import { Schedule } from '../types/Schedule';
-import { Typography } from '../components/Typography';
+import { containerVariants, itemVariants } from '@/_constants/animations';
+import { Schedule } from '@/app/types/Schedule';
+import { Typography } from '@/_components/Typography';
 
 interface OpeningHoursProps {
     schedule: Schedule;

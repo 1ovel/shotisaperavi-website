@@ -1,8 +1,9 @@
 import React from 'react';
-import Spacer from '../../components/Spacer';
-import LocationFullInfo from '../../sections/LocationFullInfo';
-import { locations } from '@/app/data/locations';
-import Footer from '@/app/components/Footer';
+
+import { locations } from '@/_data/locations';
+import Footer from '@/_components/Footer';
+import Spacer from '@/_components/Spacer';
+import LocationFullInfo from '@/_sections/LocationFullInfo';
 
 interface RestaurantProps {
     params: Promise<{ restaurant: string }>;

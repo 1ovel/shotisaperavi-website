@@ -2,13 +2,13 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
-import logoImage from '../images/logo.svg';
+import logoImage from '@/_images/logo.svg';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import { useModal } from '@faceless-ui/modal';
-import { locations } from '../data/locations';
+import { locations } from '@/_data/locations';
 import Link from 'next/link';
 import NavLink from './NavLink';
-import { useWindowSize } from '../hooks/useWindowSize';
+import { useWindowSize } from '@/_hooks/useWindowSize';
 import { usePathname } from 'next/navigation';
 
 const Header = () => {
