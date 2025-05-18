@@ -13,11 +13,13 @@ import imageMenu from '@/_images/menu-photo.webp';
 import Selector from '@/_components/Selector';
 import Menu from '@/_components/Menu';
 import { useSearchParams, useRouter } from 'next/navigation';
+import { useWindowSize } from '@/_hooks/useWindowSize';
 
 const MenuContent = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const locationIdFromUrl = searchParams.get('location');
+    const { isMobile } = useWindowSize();
 
     const [selectedLocationId, setSelectedLocationId] = useState(
         locationIdFromUrl &&
@@ -74,7 +76,7 @@ const MenuContent = () => {
                 >
                     <motion.div
                         variants={itemVariants}
-                        className="col-span-6 col-start-4 h-full"
+                        className="col-span-12 lg:col-span-6 lg:col-start-4 h-full "
                     >
                         <div className="w-full h-full relative">
                             <Image
@@ -98,7 +100,7 @@ const MenuContent = () => {
                     </motion.div>
                     <motion.div
                         variants={itemVariants}
-                        className="absolute w-full h-full"
+                        className="absolute w-full h-full hidden lg:block"
                     >
                         <Typography
                             variant="decoration"
@@ -114,7 +116,7 @@ const MenuContent = () => {
                         </Typography>
                     </motion.div>
                 </motion.div>
-                <Spacer />
+                <Spacer size={isMobile ? 'md' : 'lg'} />
                 <motion.div variants={itemVariants}>
                     <Selector
                         items={locationSelectorItems}

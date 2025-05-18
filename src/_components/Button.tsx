@@ -5,6 +5,7 @@ import React from 'react';
 import arrowIcon from '@/_images/arrow.svg';
 import Link from 'next/link';
 import { useFormStatus } from 'react-dom';
+import { cn } from '@/_lib/cn';
 
 interface ButtonProps {
     title?: string;
@@ -12,6 +13,7 @@ interface ButtonProps {
     children?: React.ReactNode;
     onClick?: () => void;
     type?: 'submit' | 'reset' | 'button';
+    className?: string;
 }
 
 const Button = ({
@@ -20,6 +22,7 @@ const Button = ({
     children,
     onClick,
     type = 'button',
+    className,
 }: ButtonProps) => {
     const { pending } = useFormStatus();
     const content = (
@@ -29,12 +32,12 @@ const Button = ({
         </>
     );
 
+    const baseClasses =
+        'uppercase text-lg flex items-center gap-4 hover:gap-6 transition-all';
+
     if (href) {
         return (
-            <Link
-                href={href}
-                className="uppercase text-lg flex items-center gap-4 hover:gap-6 transition-all"
-            >
+            <Link href={href} className={cn(baseClasses, className)}>
                 {content}
             </Link>
         );
@@ -42,7 +45,7 @@ const Button = ({
 
     return (
         <button
-            className="uppercase text-lg flex items-center gap-4 hover:gap-6 transition-all"
+            className={cn(baseClasses, className)}
             onClick={onClick}
             type={type}
             disabled={pending}
