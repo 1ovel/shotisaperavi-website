@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 const MenuPage = () => {
     return (
         <div>
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div></div>}>
                 <MenuContent />
             </Suspense>
             <Footer />

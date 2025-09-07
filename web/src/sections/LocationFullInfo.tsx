@@ -21,7 +21,7 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
     return (
         <motion.section
             key={pathname}
-            className="grid gap-xsSpacing grid-cols-12 grid-rows-auto w-full relative"
+            className="grid gap-xsSpacing grid-cols-12 grid-rows-auto w-full relative flex-1"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -31,10 +31,11 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                     variants={itemVariants}
                     className="grid grid-cols-6 grid-rows-1 h-full"
                 >
-                    <div className="col-span-6 lg:col-span-4 row-span-1 h-48 sm:h-64 lg:h-full">
+                    <div className="col-span-6 lg:col-span-4 row-span-1 h-48 sm:h-64 lg:h-full relative">
                         <Image
                             src={location.imageSrc}
                             alt=""
+                            fill
                             className="object-cover w-full h-full brightness-[0.8]"
                         />
                     </div>
@@ -43,11 +44,11 @@ const LocationFullInfo = ({ location }: LocationFullInfoProps) => {
                 <div className="absolute inset-0 flex items-center justify-center lg:block lg:inset-auto lg:top-1/2 lg:-translate-y-1/2">
                     <motion.div
                         variants={itemVariants}
-                        className="w-full lg:grid lg:grid-cols-6 lg:grid-rows-1"
+                        className="w-full lg:grid lg:grid-cols-12 lg:grid-rows-1"
                     >
                         <motion.div
                             variants={itemVariants}
-                            className="text-center lg:text-left lg:col-start-2 lg:col-span-4"
+                            className="text-center lg:text-left lg:col-start-2 lg:col-span-8"
                         >
                             <Typography
                                 variant="h1"

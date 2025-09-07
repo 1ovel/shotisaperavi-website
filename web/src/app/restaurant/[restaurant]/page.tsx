@@ -1,9 +1,10 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
 
-import { locations } from '@/data/locations';
 import Footer from '@/components/Footer';
 import Spacer from '@/components/Spacer';
 import LocationFullInfo from '@/sections/LocationFullInfo';
+import { getLocationWithMenu } from '@/lib/data';
 
 interface RestaurantProps {
     params: Promise<{ restaurant: string }>;
@@ -11,14 +12,18 @@ interface RestaurantProps {
 
 const Restaurant = async ({ params }: RestaurantProps) => {
     const { restaurant } = await params;
-    const location = locations.find((l) => l.slug === restaurant)!;
+    const location = await getLocationWithMenu(restaurant);
+
+    if (!location) {
+        notFound();
+    }
 
     return (
         <main>
             <div className="flex flex-col min-h-screen">
                 <Spacer />
                 <LocationFullInfo location={location} />
-                <Spacer size="md" />
+                <Spacer />
             </div>
             <Footer />
         </main>
