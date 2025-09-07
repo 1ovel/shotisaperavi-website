@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React, { useState } from 'react';
-import logoImage from '@/_images/logo.svg';
+import logoImage from '@/images/logo.svg';
 import { motion, useMotionValueEvent, useScroll } from 'motion/react';
 import { useModal } from '@faceless-ui/modal';
 import { locations } from '@/data/locations';

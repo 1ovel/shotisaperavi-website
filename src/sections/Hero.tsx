@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import React from 'react';
-import imageBread from '@/_images/photo-bread.webp';
-import imageFood from '@/_images/photo-food.webp';
+import imageBread from '@/images/photo-bread.webp';
+import imageFood from '@/images/photo-food.webp';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '@/constants/animations';
 import { Typography } from '@/components/Typography';

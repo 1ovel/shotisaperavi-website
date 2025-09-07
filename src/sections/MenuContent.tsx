@@ -9,7 +9,7 @@ import { SelectorItem } from '@/types/SelectorItem';
 import { locations } from '@/data/locations';
 import Image from 'next/image';
 import { Typography } from '@/components/Typography';
-import imageMenu from '@/_images/menu-photo.webp';
+import imageMenu from '@/images/menu-photo.webp';
 import Selector from '@/components/Selector';
 import Menu from '@/components/Menu';
 import { useSearchParams, useRouter } from 'next/navigation';

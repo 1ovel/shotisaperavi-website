@@ -5,7 +5,7 @@ import Spacer from '@/components/Spacer';
 import LocationDescriptor from '@/components/LocationDescriptor';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '@/constants/animations';
-import imageRestaurant from '@/_images/restaurant-environment.webp';
+import imageRestaurant from '@/images/restaurant-environment.webp';
 import Image from 'next/image';
 
 const LocationsContactInfo = () => {

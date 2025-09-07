@@ -11,17 +11,17 @@ export const metadata: Metadata = {
 };
 
 const displayFont = localFont({
-    src: '../_fonts/Jost.ttf',
+    src: '../fonts/Jost.ttf',
     variable: '--font-display',
 });
 
 const headingFont = localFont({
-    src: '../_fonts/Felidae.ttf',
+    src: '../fonts/Felidae.ttf',
     variable: '--font-heading',
 });
 
 const decorationFont = localFont({
-    src: '../_fonts/3d_unicode.ttf',
+    src: '../fonts/3d_unicode.ttf',
     variable: '--font-decoration',
 });
 

@@ -1,8 +1,8 @@
 import { LocationInfo } from '@/types/LocationInfo';
-import imageTable from '@/_images/photo-table.webp';
-import imageTableAlt from '@/_images/photo-table-alt.webp';
-import imageWine from '@/_images/photo-wine.webp';
-import imageWineAlt from '@/_images/photo-wine-alt.webp';
+import imageTable from '@/images/photo-table.webp';
+import imageTableAlt from '@/images/photo-table-alt.webp';
+import imageWine from '@/images/photo-wine.webp';
+import imageWineAlt from '@/images/photo-wine-alt.webp';
 
 export const locations: LocationInfo[] = [
     {

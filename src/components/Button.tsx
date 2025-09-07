@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import React from 'react';
-import arrowIcon from '@/_images/arrow.svg';
+import arrowIcon from '@/images/arrow.svg';
 import Link from 'next/link';
 import { useFormStatus } from 'react-dom';
 import { cn } from '@/lib/cn';
