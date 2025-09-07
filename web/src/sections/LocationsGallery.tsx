@@ -3,14 +3,15 @@
 import React from 'react';
 import LocationCard from '@/components/LocationCard';
 import Spacer from '@/components/Spacer';
-import { locations } from '@/data/locations';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '@/constants/animations';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { Typography } from '@/components/Typography';
+import useLocations from '@/hooks/useLocations';
 
 const LocationsGallery = () => {
     const { isMobile } = useWindowSize();
+    const { locations } = useLocations();
 
     return (
         <motion.section
