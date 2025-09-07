@@ -54,7 +54,7 @@ const LocationDescriptor = () => {
                         exit="hidden"
                     >
                         <Typography variant="h3" className="mb-4">
-                            {selectedLocation.title}
+                            {selectedLocation.address}
                         </Typography>
                         <Typography variant="body" className="mb-4">
                             {selectedLocation.description}

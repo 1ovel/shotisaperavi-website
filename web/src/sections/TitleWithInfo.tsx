@@ -12,7 +12,7 @@ interface TitleWithInfoProps {
     decoration: string;
     textLeft: string;
     textRight: string;
-    buttonText: string;
+    buttonText?: string;
     onButtonClick?: () => void;
 }
 
@@ -53,9 +53,9 @@ const TitleWithInfo = ({
                 <motion.div variants={itemVariants} className="col-span-2">
                     <Typography variant="body">{textRight}</Typography>
                 </motion.div>
-                <motion.div variants={itemVariants} className="col-span-2">
+                {buttonText && <motion.div variants={itemVariants} className="col-span-2">
                     <Button onClick={onButtonClick}>{buttonText}</Button>
-                </motion.div>
+                </motion.div>}
             </div>
         </motion.section>
     );

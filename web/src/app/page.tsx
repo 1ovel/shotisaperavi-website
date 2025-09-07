@@ -1,11 +1,16 @@
+'use client'
+
 import Spacer from '@/components/Spacer';
 import Hero from '@/sections/Hero';
 import TitleWithInfo from '@/sections/TitleWithInfo';
 import LocationsGallery from '@/sections/LocationsGallery';
 import LocationsContactInfo from '@/sections/LocationsContactInfo';
 import Footer from '@/components/Footer';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+    const router = useRouter();
+
     return (
         <main>
             <div className="h-screen flex flex-col">
@@ -31,7 +36,6 @@ export default function Home() {
                 textRight="The house wine list features a wide selection of
                         Georgian wines imported by us, which add the finishing
                         touch to the whole experience."
-                buttonText="Find out more about us"
             />
 
             <Spacer />
@@ -57,6 +61,9 @@ export default function Home() {
                         distinctive flavor. Our cuisine is mildly spiced but not
                         too spicy."
                 buttonText="Open our menu"
+                onButtonClick={() => {
+                    router.push('/menu');
+                }}
             />
 
             <Spacer />
