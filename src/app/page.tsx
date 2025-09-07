@@ -1,9 +1,9 @@
-import Spacer from '@/_components/Spacer';
-import Hero from '@/_sections/Hero';
-import TitleWithInfo from '@/_sections/TitleWithInfo';
-import LocationsGallery from '@/_sections/LocationsGallery';
-import LocationsContactInfo from '@/_sections/LocationsContactInfo';
-import Footer from '@/_components/Footer';
+import Spacer from '@/components/Spacer';
+import Hero from '@/sections/Hero';
+import TitleWithInfo from '@/sections/TitleWithInfo';
+import LocationsGallery from '@/sections/LocationsGallery';
+import LocationsContactInfo from '@/sections/LocationsContactInfo';
+import Footer from '@/components/Footer';
 
 export default function Home() {
     return (

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
-import Header from '@/_components/Header';
+import Header from '@/components/Header';
 import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
-import MenuModal from '@/_components/MenuModal';
+import MenuModal from '@/components/MenuModal';
 
 export const metadata: Metadata = {
     title: 'Shoti & Saperavi',

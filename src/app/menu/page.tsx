@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
-import MenuContent from '@/_sections/MenuContent';
-import Footer from '@/_components/Footer';
+import MenuContent from '@/sections/MenuContent';
+import Footer from '@/components/Footer';
 
 const MenuPage = () => {
     return (
