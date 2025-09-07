@@ -9,29 +9,21 @@ import { AnimatePresence, motion } from 'motion/react';
 import { itemVariants } from '@/constants/animations';
 import { Typography } from './Typography';
 import { getLocations } from '@/lib/data';
+import useLocations from '@/hooks/useLocations';
 
 const LocationDescriptor = () => {
-    const [locations, setLocations] = useState<LocationInfo[]>([]);
-    const [loading, setLoading] = useState(true);
+    const { locations, isLoading } = useLocations();
     const [selectedLocationId, setSelectedLocationId] = useState<string>('');
+    const selectedLocation = useMemo(
+        () => locations.find((location) => location.id === selectedLocationId),
+        [selectedLocationId, locations]
+    );
 
     useEffect(() => {
-        const loadLocations = async () => {
-            try {
-                const locationsData = await getLocations();
-                setLocations(locationsData);
-                if (locationsData.length > 0) {
-                    setSelectedLocationId(locationsData[0].id);
-                }
-            } catch (error) {
-                console.error('Error loading locations:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadLocations();
-    }, []);
+        if (locations.length > 0) {
+            setSelectedLocationId(locations[0].id);
+        }
+    }, [locations]);
 
     const locationSelectorItems: SelectorItem[] = locations.map((location) => {
         return {
@@ -41,12 +33,7 @@ const LocationDescriptor = () => {
         };
     });
 
-    const selectedLocation = useMemo(
-        () => locations.find((location) => location.id === selectedLocationId),
-        [selectedLocationId, locations]
-    );
-
-    if (loading) {
+    if (isLoading) {
         return <div></div>;
     }
 

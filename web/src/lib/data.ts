@@ -1,6 +1,7 @@
+'use server'
+
 import { client, queries, urlFor } from './sanity'
-import { LocationInfo, MenuInfo, ScheduleItem } from '@/types'
-import { StaticImageData } from 'next/image'
+import { LocationInfo, MenuInfo } from '@/types'
 
 function transformLocation(sanityLocation: any): LocationInfo {
   return {

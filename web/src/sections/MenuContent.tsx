@@ -1,76 +1,31 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import Spacer from '@/components/Spacer';
 import { motion } from 'motion/react';
 import { containerVariants, itemVariants } from '@/constants/animations';
-import { SelectorItem } from '@/types/SelectorItem';
-import { LocationInfo, MenuInfo } from '@/types';
 import Image from 'next/image';
 import { Typography } from '@/components/Typography';
 import imageMenu from '@/images/menu-photo.webp';
 import Selector from '@/components/Selector';
 import Menu from '@/components/Menu';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import { getLocations, getMenus } from '@/lib/data';
+import useMenuContentData from '@/hooks/useMenuContentData';
+import { SelectorItem } from '@/types';
 
 const MenuContent = () => {
-    const searchParams = useSearchParams();
     const router = useRouter();
+    const searchParams = useSearchParams();
     const locationIdFromUrl = searchParams.get('location');
     const { isMobile } = useWindowSize();
-
-    const [locations, setLocations] = useState<LocationInfo[]>([]);
-    const [menus, setMenus] = useState<MenuInfo[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [selectedLocationId, setSelectedLocationId] = useState<string>('');
-    const [selectedMenuId, setSelectedMenuId] = useState<string>('');
-
-    useEffect(() => {
-        const loadData = async () => {
-            try {
-                const [locationsData, menusData] = await Promise.all([
-                    getLocations(),
-                    getMenus()
-                ]);
-                
-                setLocations(locationsData);
-                setMenus(menusData);
-                
-                if (locationIdFromUrl && locationsData.some((loc) => loc.id === locationIdFromUrl)) {
-                    setSelectedLocationId(locationIdFromUrl);
-                    setSelectedMenuId(locationIdFromUrl);
-                } else if (locationsData.length > 0) {
-                    setSelectedLocationId(locationsData[0].id);
-                    setSelectedMenuId(locationsData[0].id);
-                }
-            } catch (error) {
-                console.error('Error loading data:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadData();
-    }, [locationIdFromUrl]);
-
-    useEffect(() => {
-        if (locationIdFromUrl && locations.length > 0) {
-            setSelectedMenuId(
-                locations.some((loc) => loc.id === locationIdFromUrl)
-                    ? locationIdFromUrl
-                    : selectedLocationId
-            );
-            setSelectedLocationId(
-                locations.some((loc) => loc.id === locationIdFromUrl)
-                    ? locationIdFromUrl
-                    : selectedLocationId
-            );
-            return;
-        }
-        setSelectedMenuId(selectedLocationId);
-    }, [selectedLocationId, locationIdFromUrl, locations]);
+    const { 
+        isLoading,
+        selectedLocationId,
+        selectedMenu,
+        locations,
+        setSelectedLocationId,
+    } = useMenuContentData(locationIdFromUrl);
 
     const locationSelectorItems: SelectorItem[] = locations.map((location) => {
         return {
@@ -83,15 +38,9 @@ const MenuContent = () => {
         };
     });
 
-    const selectedMenu = useMemo(() => {
-        return menus.find((menu) => menu.locationId === selectedMenuId);
-    }, [selectedMenuId, menus]);
-
-    if (loading) {
+    if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                
-            </div>
+            <div className="min-h-screen flex items-center justify-center" />
         );
     }
 

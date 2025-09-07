@@ -5,29 +5,12 @@ import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import closeIcon from '@/images/cross.svg';
 import Link from 'next/link';
-import { LocationInfo } from '@/types';
 import { Typography } from './Typography';
-import { getLocations } from '@/lib/data';
+import useLocations from '@/hooks/useLocations';
 
 const MenuModal = () => {
     const { toggleModal } = useModal();
-    const [locations, setLocations] = useState<LocationInfo[]>([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const loadLocations = async () => {
-            try {
-                const locationsData = await getLocations();
-                setLocations(locationsData);
-            } catch (error) {
-                console.error('Error loading locations:', error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        loadLocations();
-    }, []);
+    const { locations, isLoading } = useLocations();
 
     return (
         <Modal
@@ -41,7 +24,7 @@ const MenuModal = () => {
                 onClick={() => toggleModal('menu')}
             />
             <ul className="flex flex-col items-center justify-center gap-xsSpacing">
-                {loading ? (
+                {isLoading ? (
                     <div></div>
                 ) : (
                     locations.map((l) => (
