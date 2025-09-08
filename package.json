@@ -1,0 +1,23 @@
+{
+  "name": "shotisaperavi-website",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "web",
+    "cms"
+  ],
+  "scripts": {
+    "build": "nx build web",
+    "dev": "nx run-many --target=serve --all --parallel",
+    "dev:web": "nx serve web",
+    "dev:cms": "nx serve cms",
+    "build:web": "nx build web",
+    "build:cms": "nx build cms",
+    "lint": "nx run-many --target=lint --all",
+    "test": "nx run-many --target=test --all",
+    "start": "cd web && npm start"
+  },
+  "devDependencies": {
+    "nx": "^21.4.1"
+  }
+}
