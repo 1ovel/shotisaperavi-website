@@ -1,14 +1,12 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import { LocationInfo } from '@/types';
 import { SelectorItem } from '@/types/SelectorItem';
 import Selector from './Selector';
 import Spacer from './Spacer';
 import { AnimatePresence, motion } from 'motion/react';
 import { itemVariants } from '@/constants/animations';
 import { Typography } from './Typography';
-import { getLocations } from '@/lib/data';
 import useLocations from '@/hooks/useLocations';
 
 const LocationDescriptor = () => {

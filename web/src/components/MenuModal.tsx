@@ -2,7 +2,7 @@
 
 import { Modal, useModal } from '@faceless-ui/modal';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import closeIcon from '@/images/cross.svg';
 import Link from 'next/link';
 import { Typography } from './Typography';

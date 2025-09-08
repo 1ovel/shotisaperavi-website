@@ -1,6 +1,5 @@
 import { getLocations, getMenus } from "@/lib/data";
-import { LocationInfo, MenuInfo, SelectorItem } from "@/types";
-import { useRouter } from "next/router";
+import { LocationInfo, MenuInfo } from "@/types";
 import { useEffect, useMemo, useState } from "react";
 
 const useMenuContentData = (locationIdFromUrl: string | null) => {

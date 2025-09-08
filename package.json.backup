@@ -2,6 +2,10 @@
   "name": "shotisaperavi-website",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "web",
+    "cms"
+  ],
   "scripts": {
     "build": "nx build web",
     "dev": "nx run-many --target=serve --all --parallel",

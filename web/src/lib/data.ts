@@ -1,9 +1,9 @@
 'use server'
 
 import { client, queries, urlFor } from './sanity'
-import { LocationInfo, MenuInfo } from '@/types'
+import { LocationInfo, MenuInfo, SanityLocationWithSchedule, SanityMenuWithLocation } from '@/types'
 
-function transformLocation(sanityLocation: any): LocationInfo {
+function transformLocation(sanityLocation: SanityLocationWithSchedule): LocationInfo {
   return {
     id: sanityLocation._id,
     slug: sanityLocation.slug.current,
@@ -14,7 +14,7 @@ function transformLocation(sanityLocation: any): LocationInfo {
     phone: sanityLocation.phone,
     email: sanityLocation.email,
     imageSrc: sanityLocation.image ? urlFor(sanityLocation.image).url() : '',
-    schedule: sanityLocation.schedule?.map((s: any) => ({
+    schedule: sanityLocation.schedule?.map((s) => ({
       id: s._id,
       days: s.days,
       openTime: s.openTime,
@@ -26,16 +26,16 @@ function transformLocation(sanityLocation: any): LocationInfo {
   }
 }
 
-function transformMenu(sanityMenu: any): MenuInfo {
+function transformMenu(sanityMenu: SanityMenuWithLocation): MenuInfo {
   return {
     id: sanityMenu._id,
     locationId: sanityMenu.location._id,
-    menuSections: sanityMenu.menuSections?.map((section: any) => ({
+    menuSections: sanityMenu.menuSections?.map((section) => ({
       id: section._id,
       title: section.title,
       decorator: section.decorator || '',
       menuId: sanityMenu._id,
-      menuItems: section.menuItems?.map((item: any) => ({
+      menuItems: section.menuItems?.map((item) => ({
         id: item._id,
         title: item.title,
         description: item.description,
@@ -54,7 +54,7 @@ function transformMenu(sanityMenu: any): MenuInfo {
 
 export async function getLocations(): Promise<LocationInfo[]> {
   try {
-    const sanityLocations = await client.fetch(queries.locations)
+    const sanityLocations = await client.fetch(queries.locations) as SanityLocationWithSchedule[]
     return sanityLocations.map(transformLocation)
   } catch (error) {
     console.error('Error fetching locations:', error)
@@ -64,7 +64,7 @@ export async function getLocations(): Promise<LocationInfo[]> {
 
 export async function getLocationBySlug(slug: string): Promise<LocationInfo | null> {
   try {
-    const sanityLocation = await client.fetch(queries.locationBySlug, { slug })
+    const sanityLocation = await client.fetch(queries.locationBySlug, { slug }) as SanityLocationWithSchedule | null
     return sanityLocation ? transformLocation(sanityLocation) : null
   } catch (error) {
     console.error('Error fetching location by slug:', error)
@@ -74,7 +74,7 @@ export async function getLocationBySlug(slug: string): Promise<LocationInfo | nu
 
 export async function getMenus(): Promise<MenuInfo[]> {
   try {
-    const sanityMenus = await client.fetch(queries.menus)
+    const sanityMenus = await client.fetch(queries.menus) as SanityMenuWithLocation[]
     return sanityMenus.map(transformMenu)
   } catch (error) {
     console.error('Error fetching menus:', error)
@@ -84,7 +84,7 @@ export async function getMenus(): Promise<MenuInfo[]> {
 
 export async function getMenuByLocation(slug: string): Promise<MenuInfo | null> {
   try {
-    const sanityMenu = await client.fetch(queries.menuByLocation, { slug })
+    const sanityMenu = await client.fetch(queries.menuByLocation, { slug }) as SanityMenuWithLocation | null
     return sanityMenu ? transformMenu(sanityMenu) : null
   } catch (error) {
     console.error('Error fetching menu by location:', error)
