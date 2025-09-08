@@ -6,7 +6,7 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
-      "outputs": ["cms/dist"],
+      "outputs": ["dist"],
       "options": {
         "command": "pnpm build",
         "cwd": "cms"
@@ -37,7 +37,7 @@
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["cms/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
