@@ -8,14 +8,13 @@ import { useModal } from '@faceless-ui/modal';
 import Link from 'next/link';
 import NavLink from './NavLink';
 import { useWindowSize } from '@/hooks/useWindowSize';
-import useLocations from '@/hooks/useLocations';
+import { LocationInfo } from '@/types';
 
-const Header = () => {
+const Header = ({ locations }: { locations: LocationInfo[] }) => {
     const { toggleModal } = useModal();
     const { scrollY } = useScroll();
     const [isHidden, setIsHidden] = useState(false);
     const { isMobile } = useWindowSize();
-    const { locations } = useLocations();
     
     useMotionValueEvent(scrollY, 'change', (current) => {
         const prev = scrollY.getPrevious();

@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import Header from '@/components/Header';
 import { ModalContainer, ModalProvider } from '@faceless-ui/modal';
 import MenuModal from '@/components/MenuModal';
+import { getLocations } from '@/lib/data';
 
 export const metadata: Metadata = {
     title: 'Shoti & Saperavi',
@@ -25,11 +26,13 @@ const decorationFont = localFont({
     variable: '--font-decoration',
 });
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const locations = await getLocations();
+
     return (
         <html lang="en">
             <body
@@ -38,7 +41,7 @@ export default function RootLayout({
                 <ModalProvider>
                     <ModalContainer />
                     <div className="min-h-screen mx-5 md:mx-10 min-[2000px]:max-w-[1900px] xl:mx-auto xl:max-w-[1240px] 2xl:max-w-[1500px] relative">
-                        <Header />
+                        <Header locations={locations} />
                         {children}
                     </div>
                     <MenuModal />
