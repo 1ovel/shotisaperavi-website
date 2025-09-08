@@ -28,7 +28,7 @@ const variantStyles: Record<TypographyVariant, string> = {
     caption: 'text-[14px] sm:text-[16px] text-foregroundGrey',
     button: 'uppercase text-lg',
     descriptor: 'text-foregroundWhite font-extralight text-2xl',
-    decoration: 'font-decoration text-foregroundDark leading-none text-xl',
+    decoration: 'font-decoration text-foregroundGrey leading-none text-xl',
 };
 
 const defaultElements: Record<TypographyVariant, ElementType> = {

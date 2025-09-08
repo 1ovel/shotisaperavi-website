@@ -44,12 +44,13 @@ const Header = () => {
                 <nav className="flex-1 hidden lg:block">
                     <ul className="flex gap-xsSpacing">
                         {locations.map((l) => (
-                            <NavLink
-                                key={l.slug + '-link'}
-                                slug={l.slug}
-                                title={l.title}
-                                href={`/restaurant/${l.slug}`}
-                            />
+                            <li key={l.slug + '-link'}>
+                                <NavLink
+                                    slug={l.slug}
+                                    title={l.title}
+                                    href={`/restaurant/${l.slug}`}
+                                />
+                            </li>
                         ))}
                     </ul>
                 </nav>
@@ -64,7 +65,9 @@ const Header = () => {
 
                 <nav className="flex-1 hidden lg:block">
                     <ul className="flex gap-xsSpacing justify-end">
-                        <NavLink slug="menu" title="Our Menu" href="/menu" />
+                        <li>
+                            <NavLink slug="menu" title="Our Menu" href="/menu" />
+                        </li>
                     </ul>
                 </nav>
 
